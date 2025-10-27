@@ -3,7 +3,10 @@ import mongoose from "mongoose";
 export const connectDB = async () => {
   const host = process.env.MONGO_HOST || "mongo";
   const dbName = process.env.MONGO_DB_NAME || "taskmanager";
-  const uri = `mongodb://${host}:27017/${dbName}`;
+  const user = process.env.MONGO_USERNAME;
+  const pass = process.env.MONGO_PASSWORD;
+
+  const uri = `mongodb://${user}:${pass}@${host}:27017/${dbName}?authSource=admin`;
 
   let connected = false;
 

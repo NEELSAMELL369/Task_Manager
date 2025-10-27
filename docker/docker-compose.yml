@@ -14,8 +14,9 @@ services:
       - taskmanager-net
 
   app:
-    image: neell369/task-manager:latest   # use prebuilt image from Docker Hub
-    # build: . 
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile 
     container_name: taskmanager-app
     restart: always
     env_file:
