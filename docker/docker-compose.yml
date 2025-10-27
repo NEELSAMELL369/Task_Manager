@@ -1,7 +1,7 @@
 
 services:
   mongo:
-    image: mongo:7
+    image: neell369/task-manager:latest
     container_name: taskmanager-mongo
     restart: always
     ports:
